@@ -1,0 +1,91 @@
+<!-- ThIS IS NOT THE MAIN FILE , MAIN FILE IS INDEX.HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+    <div class="login">
+        <h1>Predicting Bot/Non-Bot</h1>
+
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}" method="POST">
+            <input type="text" name='Attention' placeholder="Attention" required="required" />
+            <input type="text" name='Mediation' placeholder="Mediation" required="required" />
+            <input type="text" name='Raw' placeholder='Raw' required="required" />
+            <input type="text" name='Delta' placeholder='Delta' required="required" />
+            <input type="text" name='Theta' placeholder='Theta' required="required" />
+            <input type="text" name='Alpha1' placeholder='Alpha1' required="required" />
+            <input type="text" name='Alpha2' placeholder='Alpha2' required="required" />
+            <input type="text" name='Beta1' placeholder='Beta1' required="required" />
+            <input type="text" name='Beta2' placeholder='Beta2' required="required" />
+            <input type="text" name='Gamma1' placeholder='Gamma1' required="required" />
+            <input type="text" name='Gamma2' placeholder='Gamma2' required="required" />
+            <label for="cars">Choose a car:</label>
+            <select name="cars" id="cars">
+                <option value="volvo" name='Age_25'>Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+
+
+
+            <!-- <input type="text" name='Age_24' placeholder='Age_24' required="required" />
+            <input type="text" name='Age_25' placeholder='Age_25' required="required" />
+            <input type="text" name='Age_28' placeholder='Age_28' required="required" />
+            <input type="text" name='Age_31' placeholder='Age_31' required="required" /> -->
+            <!-- <input type="text" name='Gender_0' placeholder='Gender_0' required="required" />
+            <input type="text" name='Gender_1' placeholder='Gender_1' required="required" /> -->
+            <!-- <input type="text" name='Ethnicity_Bengali' placeholder='Ethnicity_Bengali' required="required" />
+            <input type="text" name='Ethnicity_English' placeholder='Ethnicity_English' required="required" />
+            <input type="text" name='Ethnicity_Han chinese' placeholder='Ethnicity_Han chinese' required="required" /> -->
+
+
+
+
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <br>
+        <br>
+        {{ prediction_text }}
+
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+<!-- (not confused)15th row->0.57 0.43 0.510731707 0.059237005 0.02687158 0.005830665 0.031958886 0.011025265 0.038604895 0.020811686 0.013405946 0 1
+0 0 0 1 0 0 1 -->
+
+
+
+<!-- (is confused)200th row-> 0.5 0.69 0.513414634 0.180715394 0.051157432 0.054159203 0.019017684 0.027286992 0.05169582 0.018375136 0.035924498 0 1
+0 0 0 1 0 0 1 -->
